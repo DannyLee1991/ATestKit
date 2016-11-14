@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.atestkit.atestkitcore.ui.tabview.LogTabLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_scroll_to_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:background="@color/ht_blue"
+        android:text="@string/testtool_scroll_to_bottom"
+        android:textColor="@color/test_white" />
+
+    <com.atestkit.atestkitcore.ui.TerminalView
+        android:id="@+id/tv_log"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:text="log loading ..."
+        android:textColor="@color/test_yellow" />
+
+    <TextView
+        android:id="@+id/tv_scroll_to_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:background="@color/ht_blue"
+        android:text="@string/testtool_scroll_to_top"
+        android:textColor="@color/test_white" />
+
+
+</com.atestkit.atestkitcore.ui.tabview.LogTabLayout>

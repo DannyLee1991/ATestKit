@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/v_ce"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/ce" />
+
+    <com.atestkit.atestkitcore.ui.PopWinContainer
+        android:id="@+id/popup_window"
+        android:layout_width="350dp"
+        android:layout_height="300dp"
+        android:background="#88008800">
+
+        <TabHost
+            android:id="@+id/tabhost"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TabWidget
+                    android:id="@android:id/tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <FrameLayout
+                    android:id="@android:id/tabcontent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <!-- 第一个tab的布局 -->
+                    <ScrollView
+                        android:id="@+id/activity_tab"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <!-- 第二个tab的布局 -->
+                    <ScrollView
+                        android:id="@+id/event_tab"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <!-- 第三个tab的布局 -->
+                    <ScrollView
+                        android:id="@+id/common_tab"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <!-- 第四个tab的布局 -->
+
+                    <ScrollView
+                        android:id="@+id/log_tab"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </FrameLayout>
+            </LinearLayout>
+        </TabHost>
+
+    </com.atestkit.atestkitcore.ui.PopWinContainer>
+
+</LinearLayout>

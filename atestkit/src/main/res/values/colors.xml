@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="test_red">#0099ff</color>
+    <color name="test_white">#ffffff</color>
+    <color name="ht_red">#66ff0000</color>
+    <color name="ht_white">#66ffffff</color>
+    <color name="test_yellow">#ffff00</color>
+    <color name="ht_blue">#66000066</color>
+
+</resources>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TestTool</string>
+    <string name="testtool_more">更多</string>
+    <string name="testtool_close">关闭浮窗</string>
+    <string name="testtool_scroll_to_bottom">滚到底部</string>
+    <string name="testtool_scroll_to_top">回到顶部</string>
+</resources>
