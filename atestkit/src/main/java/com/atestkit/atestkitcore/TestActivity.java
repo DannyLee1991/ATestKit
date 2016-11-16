@@ -66,7 +66,7 @@ public class TestActivity extends Activity {
                 ActivityManager am = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
                 List<ActivityManager.RunningAppProcessInfo> processes = am.getRunningAppProcesses();
                 for (ActivityManager.RunningAppProcessInfo p : processes) {
-                    if ("com.atestkit.atestkitcore".equals(p.processName)) {
+                    if (p.processName.startsWith(getApplicationContext().getPackageName())) {
                         TestKit.registLog("logcat -T 500 | grep --color=auto " + p.pid);
                     }
                 }
