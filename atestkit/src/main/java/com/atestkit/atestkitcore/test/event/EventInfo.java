@@ -63,6 +63,7 @@ public class EventInfo {
             }
 
             try {
+                method.setAccessible(true);
                 method.invoke(target, newArgs);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();

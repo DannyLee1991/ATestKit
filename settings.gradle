@@ -1,1 +1,1 @@
-include ':app', ':atestkit'
+include ':app', ':atestkit', ':atestkit_no_op'
