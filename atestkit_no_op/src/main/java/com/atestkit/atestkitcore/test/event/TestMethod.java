@@ -15,7 +15,7 @@ import java.lang.annotation.Target;
 public @interface TestMethod {
     public String name();
 
-    public String description();
+    public String description() default "";
 
     public String[] args() default {};
 }

@@ -3,10 +3,13 @@ package com.atestkit.atestkitcore.ui.tabview;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.view.KeyEvent;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.atestkit.atestkitcore.R;
+import com.atestkit.atestkitcore.TestKit;
 import com.atestkit.atestkitcore.test.log.LogTest;
 import com.atestkit.atestkitcore.ui.TerminalView;
 
@@ -20,7 +23,7 @@ public class LogTabLayout extends TabLayout {
     TerminalView tvLog;
     TextView scrollToBottomView;
     TextView scrollToTopView;
-    TerminalView.OnRefreshCallback onLogRefreshCallback;
+    private TextView mTvClearTerminal;
 
     public LogTabLayout(Context context) {
         super(context);
@@ -49,6 +52,14 @@ public class LogTabLayout extends TabLayout {
         tvLog = (TerminalView) findViewById(R.id.tv_log);
         scrollToBottomView = (TextView) findViewById(R.id.tv_scroll_to_bottom);
         scrollToTopView = (TextView) findViewById(R.id.tv_scroll_to_top);
+        mTvClearTerminal = (TextView) findViewById(R.id.tv_clear_terminal);
+
+        mTvClearTerminal.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TestKit.clearTerminal();
+            }
+        });
 
         scrollToBottomView.setOnClickListener(new OnClickListener() {
             @Override

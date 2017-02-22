@@ -2,6 +2,7 @@ package com.atestkit.atestkitcore;
 
 import android.app.Activity;
 
+import com.atestkit.atestkitcore.proxy.BackDoorActivityProxy;
 import com.atestkit.atestkitcore.test.ITest;
 import com.atestkit.atestkitcore.test.TestPool;
 import com.atestkit.atestkitcore.test.activity.ActivityTest;
@@ -12,8 +13,10 @@ import com.atestkit.atestkitcore.test.log.LogTest;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 
 /**
@@ -25,7 +28,9 @@ public class TestKit {
     static Map<Activity, ActivityTest> activityTestMap = new HashMap<>();
     static Map<Object, EventTest> eventTestMap = new HashMap<>();
     static Map<List<CommonTestType>, CommonTest> commonTestMap = new HashMap<>();
-    static Map<String, LogTest> logTestMap = new HashMap<>();
+    static Map<String, LogTest> logTestMap = new ConcurrentHashMap<>();
+
+    static BackDoorActivityProxy sBackDoorActivityProxy;
 
     public static void registActivity(Activity activity) {
         if (!activityTestMap.containsKey(activity)) {
@@ -98,6 +103,15 @@ public class TestKit {
         unRegistCommonTest(types);
     }
 
+    public static void executeCmd(String cmd) {
+        clearTerminal();
+        registLog(cmd);
+    }
+
+    public static void clearTerminal() {
+        unRegistAllLog();
+    }
+
     public static void registLog(String cmd) {
         if (!logTestMap.containsKey(cmd)) {
             LogTest test = new LogTest(cmd);
@@ -113,6 +127,17 @@ public class TestKit {
                 test.unRegist();
             }
             logTestMap.remove(cmd);
+        }
+    }
+
+    public static void unRegistAllLog() {
+        Iterator<Map.Entry<String, LogTest>> iterator = logTestMap.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<String, LogTest> map = iterator.next();
+            String keyCmd = map.getKey();
+            LogTest test = map.getValue();
+            test.unRegist();
+            logTestMap.remove(keyCmd);
         }
     }
 
@@ -146,6 +171,14 @@ public class TestKit {
                 }
             }
         }
+    }
+
+    public static void setBackDoorActivityProxy(BackDoorActivityProxy proxy) {
+        sBackDoorActivityProxy = proxy;
+    }
+
+    public static BackDoorActivityProxy getBackDoorActivityProxy(){
+        return sBackDoorActivityProxy;
     }
 
 }

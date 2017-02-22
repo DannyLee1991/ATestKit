@@ -4,4 +4,5 @@
     <string name="testtool_close">关闭浮窗</string>
     <string name="testtool_scroll_to_bottom">滚到底部</string>
     <string name="testtool_scroll_to_top">回到顶部</string>
+    <string name="testtool_clear_terminal">清空输出</string>
 </resources>

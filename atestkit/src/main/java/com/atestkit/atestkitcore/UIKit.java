@@ -5,6 +5,8 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.PixelFormat;
+import android.os.Build;
+import android.provider.Settings;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -49,8 +51,23 @@ public class UIKit {
         mRootView = genFloatWindow(LayoutInflater.from(app));
         mPopView.startRefresh();
 
-        //添加mFloatLayout
-        mWindowManager.addView(mRootView, wmParams);
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (!Settings.canDrawOverlays(app)) {
+                //启动Activity让用户授权
+                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+                s.startActivity(intent);
+                return;
+            } else {
+                //执行6.0以上绘制代码
+                //添加mFloatLayout
+                mWindowManager.addView(mRootView, wmParams);
+            }
+        } else {
+            //执行6.0以下绘制代码
+
+            //添加mFloatLayout
+            mWindowManager.addView(mRootView, wmParams);
+        }
     }
 
     /**
@@ -104,9 +121,9 @@ public class UIKit {
             public boolean onMenuItemClick(MenuItem item) {
                 int i = item.getItemId();
                 if (i == R.id.memu_close) {
-                    context.stopService(new Intent(context, FWService.class));
+                    FWService.stop(context);
                 } else if (i == R.id.memu_more) {
-                    TestActivity.start(service);
+                    ATestKitMainActivity.start(service);
                 }
                 return true;
             }

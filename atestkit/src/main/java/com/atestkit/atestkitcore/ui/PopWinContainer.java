@@ -157,14 +157,16 @@ public class PopWinContainer extends LinearLayout {
     }
 
     private void refreshTabView(ViewGroup view) {
-        if (view != null && view.getChildCount() > 0 && view.getChildAt(0) instanceof TabLayout) {
-            final TabLayout tabLayout = ((TabLayout) view.getChildAt(0));
-            tabLayout.setOnFinishInflateCallback(new TabLayout.OnFinishInflateCallback() {
-                @Override
-                public void onFinish() {
-                    tabLayout.onRefresh();
-                }
-            });
+        if (view != null && view.getChildCount() > 0) {
+            if (view.getChildAt(0) instanceof TabLayout) {
+                final TabLayout tabLayout = ((TabLayout) view.getChildAt(0));
+                tabLayout.setOnFinishInflateCallback(new TabLayout.OnFinishInflateCallback() {
+                    @Override
+                    public void onFinish() {
+                        tabLayout.onRefresh();
+                    }
+                });
+            }
         }
     }
 }

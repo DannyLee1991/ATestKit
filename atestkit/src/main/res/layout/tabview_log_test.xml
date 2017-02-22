@@ -6,6 +6,13 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/tv_clear_terminal"
+        android:padding="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/testtool_clear_terminal" />
+
+    <TextView
         android:id="@+id/tv_scroll_to_bottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
