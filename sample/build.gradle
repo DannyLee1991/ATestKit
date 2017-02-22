@@ -26,6 +26,10 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:23.4.0'
 //    compile 'com.dannylee:atestkit:0.2'
-    compile project(':atestkit_no_op')
+//    dependencies {
+//        debugCompile 'com.dannylee:atestkit:0.3'
+//        releaseCompile 'com.dannylee:atestkit_no_op:0.3'
+//    }
+    compile project(':atestkit')
     testCompile 'junit:junit:4.12'
 }

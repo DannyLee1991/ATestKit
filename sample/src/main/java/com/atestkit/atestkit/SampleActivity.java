@@ -16,11 +16,11 @@ import com.atestkit.atestkitcore.test.event.TestMethod;
 
 public class SampleActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private EditText mEtExecute;
-    private TextView mTvNum;
-    private Button mBtAddNum;
-    private Button mBtSubNum;
-    private int num = 0;
+    EditText mEtExecute;
+    TextView mTvNum;
+    Button mBtAddNum;
+    Button mBtSubNum;
+    int num = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
